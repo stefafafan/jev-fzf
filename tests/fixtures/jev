@@ -1,0 +1,8 @@
+#!/bin/sh
+printf x >> "$TEST_CALLS"
+case "$TEST_MODE" in
+  fail) exit 1 ;;
+  slow) exec sleep 10 ;;
+esac
+cat > "$TEST_STATE"
+printf '%s' "$TEST_RESPONSE"
